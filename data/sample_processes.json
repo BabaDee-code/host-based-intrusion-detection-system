@@ -1,0 +1,14 @@
+[
+  {
+    "host": "win10-01",
+    "pid": 1201,
+    "name": "powershell.exe",
+    "command_line": "powershell.exe -NoProfile -EncodedCommand <redacted>"
+  },
+  {
+    "host": "linux-01",
+    "pid": 3301,
+    "name": "python",
+    "command_line": "python app.py"
+  }
+]
