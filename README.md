@@ -30,8 +30,10 @@ python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
 pip install -r requirements-dev.txt
 pytest -q
-python -m hids.scan data/sample_auth.log data/sample_processes.json
+PYTHONPATH=src python -m hids.scan data/sample_auth.log data/sample_processes.json
 ```
+
+On Windows PowerShell, use `$env:PYTHONPATH = "src"` before the final command.
 
 ## Example alert
 
