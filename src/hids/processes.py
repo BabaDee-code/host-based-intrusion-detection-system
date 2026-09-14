@@ -4,7 +4,10 @@ from typing import Any
 
 HIGH_CONFIDENCE_PROCESS_NAMES = {"nc", "netcat", "mimikatz.exe"}
 SCRIPT_INTERPRETERS = {"powershell.exe", "pwsh", "pwsh.exe"}
-SUSPICIOUS_FLAGS = ("-enc", "-encodedcommand", "-nop", "-w hidden")
+# Check longer/more specific switches before shorter aliases so alert reasons
+# preserve the most precise matching evidence (for example, -encodedcommand
+# should not be reduced to the -enc alias).
+SUSPICIOUS_FLAGS = ("-encodedcommand", "-w hidden", "-nop", "-enc")
 SUSPICIOUS_PARENT_CHILD = {
     ("winword.exe", "powershell.exe"),
     ("excel.exe", "powershell.exe"),
